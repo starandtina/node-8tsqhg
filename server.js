@@ -7,26 +7,26 @@ const node = s_iQXyswnSyS4();
 console.log(node);
 console.log('-----------');
 
-// const stream = {
-//   write: (chunk) => {
-//     console.log(chunk);
-//   },
-// };
+const stream = {
+  write: (chunk) => {
+    console.log(chunk);
+  },
+};
 
 // https://github.com/BuilderIO/qwik/blob/main/packages/qwik/src/core/render/ssr/render-ssr.ts#L97
-// renderSSR(node, {
-//   containerTagName: 'html',
-//   stream: stream,
-//   beforeClose: async (contexts, containerState) => {
-//     const snapshotResult = await _pauseFromContexts(contexts, containerState);
-//     // console.log(contexts[0].$element$);
-//     console.log(snapshotResult);
-//     console.log('=============');
-//   },
-// }).then((chuns) => {
-//   console.log(chuns);
-//   console.log('-----------');
-// });
+renderSSR(node, {
+  containerTagName: 'html',
+  stream: stream,
+  beforeClose: async (contexts, containerState) => {
+    const snapshotResult = await _pauseFromContexts(contexts, containerState);
+    // console.log(contexts[0].$element$);
+    console.log(snapshotResult);
+    console.log('=============');
+  },
+}).then((chuns) => {
+  console.log(chuns);
+  console.log('-----------');
+});
 
 // https://github.com/BuilderIO/qwik/blob/main/packages/qwik/src/server/render.ts#L233
 renderToString(node, {
